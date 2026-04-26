@@ -9,6 +9,7 @@ on:
 env:
   PYTHON_VERSION: "3.9"
   IMAGE_NAME: sakila-app
+  PYTHONPATH: ${{ github.workspace }}
 
 jobs:
   lint:
@@ -53,6 +54,7 @@ jobs:
       MYSQL_USER: root
       MYSQL_PASSWORD: admin
       MYSQL_DB: sakila
+      PYTHONPATH: ${{ github.workspace }}
 
     steps:
       - uses: actions/checkout@v4
