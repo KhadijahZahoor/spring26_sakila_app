@@ -1,0 +1,19 @@
+name: Broken Pipeline Example
+
+on:
+  workflow_dispatch:
+
+jobs:
+  broken-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Broken dependency install
+        run: |
+          pip install -r missing-requirements.txt
+
+      - name: Broken test command
+        run: |
+          pytest missing_tests/
